@@ -11,7 +11,7 @@ class LRUCache:
         self.capacity = capacity
         self.cache = {}
 
-        # Dummy nodes
+        
         self.head = Node(0, 0)
         self.tail = Node(0, 0)
 
@@ -25,7 +25,7 @@ class LRUCache:
         nxt.prev = prev
 
     def _add(self, node):
-        # Add right after head
+        
         node.next = self.head.next
         node.prev = self.head
         self.head.next.prev = node
@@ -35,7 +35,7 @@ class LRUCache:
         if key in self.cache:
             node = self.cache[key]
             self._remove(node)
-            self._add(node)  # move to front
+            self._add(node)  
             return node.value
         return -1
 
@@ -48,7 +48,7 @@ class LRUCache:
         self.cache[key] = node
 
         if len(self.cache) > self.capacity:
-            # remove LRU
+            
             lru = self.tail.prev
             self._remove(lru)
             del self.cache[lru.key]
