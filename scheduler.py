@@ -1,5 +1,5 @@
 def can_attend_all(events):
-    # Sort by start time
+    
     events.sort(key=lambda x: x[0])
 
     for i in range(1, len(events)):
